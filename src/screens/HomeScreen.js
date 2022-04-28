@@ -1,6 +1,6 @@
 import { NativeBaseProvider, Center, HStack, Button, Text } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
-import { setCounter } from "../redux/counterSlice";
+import { increaseOne, decreaseOne } from "../redux/counterSlice";
 import { selectCounter } from "../redux/counterSlice";
 
 // Then, you can use the redux state management:
@@ -17,10 +17,10 @@ const HomeScreen = () => {
      <NativeBaseProvider>
        <Center flex={1} bg={"white"}>
          <HStack space={20}>
-           <Button borderRadius={0} width={70} onPress={() => dispatch(setCounter(counterValue + 1))}>
+           <Button borderRadius={0} width={70} onPress={() => dispatch(increaseOne(counterValue + 1))}>
              <Text fontSize={40} color="white">+</Text>
            </Button>
-           <Button borderRadius={0} width={70} onPress={() => dispatch(setCounter(counterValue - 1))}>
+           <Button borderRadius={0} width={70} onPress={() => dispatch(decreaseOne(counterValue - 1))}>
              <Text fontSize={40} color="white">-</Text>
            </Button>
          </HStack>
